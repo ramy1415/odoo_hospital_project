@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record id="hms_customers_tree_view" model="ir.ui.view">
+            <field name="name">hms customer inherit tree view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='phone']" position="after">
+                    <field name="related_patient_id"/>
+                    <field name="website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="hms_customers_form_view" model="ir.ui.view">
+            <field name="name">hms customer inherit tree view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="attributes">
+                     <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="vat" required="1" placeholder="e.g. BE0477472701" attrs="{'readonly': [('parent_id','!=',False)]}" widget="field_partner_autocomplete" modifiers="{'invisible':true,'readonly':[['parent_id','!=',false]]}"/>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="before">
+                    <field name="related_patient_id"/>
+                </xpath>
+            </field>
+        </record>
+        <menuitem id="crm.res_partner_menu_customer" name="my_customers" parent="hms_root_menu"/>
+    </data>
+</odoo>

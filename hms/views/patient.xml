@@ -1,0 +1,65 @@
+<odoo>
+	<data>
+        <record id="action_patient" model="ir.actions.act_window">
+            <field name="name">patient</field>
+            <field name="res_model">hms.patient</field>
+        </record>
+        <record id="hms_patient_tree_view" model="ir.ui.view">
+            <field name="name">hms patient tree view</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Firstname"/>
+                    <field name="Lastname"/>
+                    <field name="Blood"/>
+                    <field name="doctor_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hms_patient_form_view" model="ir.ui.view">
+            <field name="name">hms patient form view</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <header>
+                            <field name="status" widget="statusbar"/>
+                        </header>
+                        <button string="Undetermined" type="object" name="change_state" context="{'state': 'Undetermined'}"/>
+                        <button string="Good" type="object" name="change_state" context="{'state': 'Good'}"/>
+                        <button string="Fair" type="object" name="change_state" context="{'state': 'Fair'}"/>
+                        <button string="Serious" type="object" name="change_state" context="{'state': 'Serious'}"/>
+                        <group>
+                            <group string="info">
+                                <field name="Firstname" required="1"/>
+                                <field name="Lastname" required="1"/>
+                                <field name="History" attrs="{'invisible':[('Age','&lt;',50)]}"/>
+                                <field name="CR_Ratio" attrs="{'required':[('PCR','=',True)]}"/>
+                                <field name="Blood"/>
+                                <field name="email"/>
+                            </group>
+                            <group string="extra info">
+                                <field name="PCR"/>
+                                <field name="Address"/>
+                                <field name="Birthdate"/>
+                                <field name="Age"/>
+                                <field name="image" widget="image"/>
+                                <field name="department_id" domain="[('Is_opened','=','True')]"/>
+                                <field name="department_Capacity"/>
+                                <field name="doctor_id" groups="hms.iti_manager_group"/>
+                                <field name="customer_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="log_history" readonly="1" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+	</data>
+    <menuitem id="hms_root_menu" name="ITI"/>
+    <menuitem id="hms_patient_menu" parent="hms_root_menu" action="action_patient" name="patients"/>
+</odoo>
+
+

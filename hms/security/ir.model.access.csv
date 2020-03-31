@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_manager,access_manager,model_hms_patient,iti_manager_group,1,1,1,1
+
+access_users_department,access_users,model_hms_department,iti_users_group,1,0,0,0
+access_users_doctors,access_users,model_hms_doctors,iti_users_group,1,0,0,0
+access_users_patient,access_users,model_hms_patient,iti_users_group,1,1,1,0
+access_users_patient,access_users,model_hms_patient,iti_users_group,1,1,1,0
+access_users_log,access_users,model_hms_log,iti_users_group,1,1,1,0
