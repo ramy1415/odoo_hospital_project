@@ -8,5 +8,13 @@
             <field name="name">Users</field>
             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
         </record>
+
+<!--        users can view only his records rule-->
+        <record id="user_own_records" model="ir.rule">
+            <field name="name">User own record rule</field>
+            <field name="model_id" ref="model_hms_patient"/>
+            <field name="domain_force">[('create_uid','=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('iti_users_group'))]"/>
+        </record>
     </data>
 </odoo>

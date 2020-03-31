@@ -13,6 +13,7 @@
                     <field name="Lastname"/>
                     <field name="Blood"/>
                     <field name="doctor_id"/>
+                    <field name="create_uid"/>
                 </tree>
             </field>
         </record>

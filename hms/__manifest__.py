@@ -4,7 +4,7 @@
 	"name":"hms",
 	"depends":['crm'],
 	"data":[
-		"security/manager.xml",
+		"security/rules.xml",
 		"security/ir.model.access.csv",
 		"views/patient.xml",
 		"views/doctors.xml",
