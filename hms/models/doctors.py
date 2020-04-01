@@ -9,4 +9,4 @@ class Doctors (models.Model):
     image = fields.Binary("Image", help="This field holds the image used as avatar for \
                 this contact, limited to 1024x1024px", )
     department_id = fields.Many2one('hms.department')
-    patient_id = fields.One2many('hms.patient','doctor_id')
+    patient_id = fields.Many2many('hms.patient')

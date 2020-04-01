@@ -1,5 +1,3 @@
-
-
 {
 	"name":"hms",
 	"depends":['crm'],
@@ -10,7 +8,11 @@
 		"views/doctors.xml",
 		"views/department.xml",
 		"views/log.xml",
-		"views/customers.xml"
+		"views/customers.xml",
+		"report/hms_patient_template.xml",
+		"report/report.xml"
 	]
 }
+
+
 

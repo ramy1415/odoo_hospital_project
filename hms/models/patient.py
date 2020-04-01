@@ -6,6 +6,7 @@ from odoo.exceptions import UserError
 
 class ItiPatient (models.Model):
     _name="hms.patient"
+    _rec_name="Firstname"
 
     Firstname=fields.Char()
     Lastname = fields.Char()
@@ -23,7 +24,7 @@ class ItiPatient (models.Model):
             this contact, limited to 1024x1024px", )
     department_id = fields.Many2one('hms.department')
     department_Capacity = fields.Integer(related='department_id.Capacity')
-    doctor_id = fields.Many2one('hms.doctors')
+    doctor_id = fields.Many2many('hms.doctors')
     log_history=fields.One2many('hms.log','patient_id')
     status=fields.Selection([('Undetermined','Undetermined'),('Good','Good'),('Fair','Fair'),('Serious','Serious')],default='Undetermined')
     email=fields.Char()

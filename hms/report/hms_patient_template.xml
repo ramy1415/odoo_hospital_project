@@ -1,0 +1,100 @@
+<odoo>
+    <data>
+        <template id="hms_patient_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <h2 style="color:red;font-weight:bold;padding-bottom:20px;">Patient Status Report</h2>
+                                        </th>
+                                        <th scope="col">
+                                            <img t-attf-src="data:image/*;base64,{{o.image}}"/>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">Name:</span>
+                                            <span t-field="o.Firstname"/>
+                                            <span t-field="o.Lastname"/>
+                                        </td>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">Birthdate:</span>
+                                            <span t-field="o.Birthdate"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">Age:</span>
+                                            <span t-field="o.Age"/>
+                                        </td>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">PCR:</span>
+                                            <span t-field="o.PCR"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">department_id:</span>
+                                            <span t-field="o.department_id"/>
+                                        </td>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">Blood type:</span>
+                                            <span t-field="o.Blood"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">doctor_id:</span>
+                                            <span t-field="o.doctor_id"/>
+                                        </td>
+                                        <td scope="row">
+                                            <span class="font-weight-bold">Email:</span>
+                                            <span t-field="o.email"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h3 class="text-center font-weight-bold text-danger">Log History</h3>
+                            <table class="table table-striped table-info">
+                                <thead>
+                                    <tr class="bg-info text-light">
+                                        <th scope="col">
+                                            User
+                                        </th>
+                                        <th scope="col">
+                                            Date
+                                        </th>
+                                        <th scope="col">
+                                            Info
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.log_history" t-as="c">
+                                        <tr>
+                                            <td scope="row">
+                                                <span t-field="c.created_by"></span>
+                                            </td>
+                                            <td scope="row">
+                                                <span t-field="c.date"></span>
+                                            </td>
+                                            <td scope="row">
+                                                <span t-field="c.description"></span>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
