@@ -4,7 +4,7 @@ from odoo.exceptions import UserError
 class Customers (models.Model):
     _inherit = 'res.partner'
 
-    related_patient_id = fields.One2many('hms.patient','customer_id')
+    related_patient_id = fields.Many2one('hms.patient','related_patient_id')
 
     @api.multi
     def unlink(self):

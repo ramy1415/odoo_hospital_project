@@ -29,6 +29,8 @@ class ItiPatient (models.Model):
     status=fields.Selection([('Undetermined','Undetermined'),('Good','Good'),('Fair','Fair'),('Serious','Serious')],default='Undetermined')
     email=fields.Char()
     customer_id=fields.Many2one('res.partner','Customer Name')
+    # customer_name=fields.Char(related='customer_id.name')
+
 
     @api.multi
     def write(self,vals):

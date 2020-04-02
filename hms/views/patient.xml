@@ -49,6 +49,7 @@
                                 <field name="department_Capacity"/>
                                 <field name="doctor_id" groups="hms.iti_manager_group"/>
                                 <field name="customer_id"/>
+<!--                                <field name="customer_name"/>-->
                             </group>
                         </group>
                         <group>
